@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#242426"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/name"
+        android:textSize="40sp"
+        android:textColor="@color/white"/>
+
+    <EditText
+        android:id="@+id/pesel"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="@string/eLogin"
+        android:autofillHints="name"
+        android:inputType="number"
+        android:layout_margin="30px"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textColorHint="#BBB8B2"/>
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:hint="@string/ePassword"
+        android:autofillHints="password"
+        android:inputType="textPassword"
+        android:layout_margin="30px"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textColorHint="#BBB8B2"/>
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="350px"
+        android:layout_height="200px"
+        android:textColor="@color/white"
+        android:text="@string/login"/>
+</LinearLayout>
