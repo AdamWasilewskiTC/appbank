@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getBlikCodeFromApi(): String {
-        val url = "http://192.168.1.108:8080/api/blik?sessionToken=" + token;
+        val url = "$HOST_NAME/api/blik?sessionToken=$token";
         var blik = ""
 
         val request = StringRequest(

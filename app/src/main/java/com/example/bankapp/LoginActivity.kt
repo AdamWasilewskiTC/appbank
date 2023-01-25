@@ -34,7 +34,7 @@ class LoginActivity : AppCompatActivity() {
             requestBodyObject.put("passwd", userPass)
             val requestBody = requestBodyObject.toString()
 
-            val url = "http://192.168.1.108:8080/api/sessions"
+            val url = "$HOST_NAME/api/sessions"
 
             val request = object : StringRequest(
                 Method.POST,
