@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
                 Log.e("myMessage", response)
                 val str = response.toString().split(" ")
                 setBlikCodeToElement(str[1])
-                startTimer(str[0].toLong() - Instant.now().toEpochMilli())
+                startTimer(str[0].toLong())
             },
             {
                 response -> Log.e("myMessage", response.toString())
