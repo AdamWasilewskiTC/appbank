@@ -14,7 +14,7 @@ import com.example.bankapp.databinding.ActivityMainBinding
 import java.time.Instant
 import java.time.ZoneOffset
 
-@RequiresApi(Build.VERSION_CODES.O)
+@RequiresApi(26)
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var token: String

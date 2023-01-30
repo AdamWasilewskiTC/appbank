@@ -3,6 +3,7 @@ package com.example.bankapp
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.Response
@@ -13,7 +14,7 @@ import com.example.bankapp.databinding.ActivityLoginBinding
 import org.json.JSONArray
 import org.json.JSONObject
 
-
+@RequiresApi(26)
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
 
