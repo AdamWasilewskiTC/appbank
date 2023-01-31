@@ -3,6 +3,7 @@ package com.example.bankapp
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
@@ -44,8 +45,11 @@ class LoginActivity : AppCompatActivity() {
             Method.POST,
             url,
             { response: String ->
-                if(response == "")
-                    throw RuntimeException("BladLogowania.exe")
+                if(response == "") {
+                    val toast = Toast(this)
+                    toast.setText("Błędny login lub hasło")
+                    toast.show()
+                }
 
                 val intent = Intent(this, MainActivity::class.java)
                 intent.putExtra("Token",response)
