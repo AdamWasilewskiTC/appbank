@@ -1,6 +1,5 @@
 package com.example.bankapp
 
-import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
@@ -23,6 +22,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var token: String
     private lateinit var queue: RequestQueue
+    private lateinit var timer: CountDownTimer
     private lateinit var paymentQueue: ArrayDeque<PaymentModel>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,12 +45,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun nextPopup(){
-        paymentQueue.removeFirst()
+        paymentQueue.removeFirstOrNull()
         val payment: PaymentModel? = paymentQueue.firstOrNull()
         if(payment == null)
             binding.popup.visibility = View.GONE
         else
-            binding.popupInfo.text = payment.toString()
+            binding.popupInfo.text = "Confirm payment?\n$payment"
     }
 
     private class ConfirmRequest(op: String, val uuid: String, val token: String, listener: Response.Listener<String>): StringRequest(
@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         }
     ) {
         override fun getBody(): ByteArray{
-            return "{\"paymentRequestId\": \"$uuid\", \"sessionToken\":\"$token\"}".toByteArray()
+            return "{\"paymentRequestId\": \"$uuid\", \"sessionToken\": \"$token\"}".toByteArray()
         }
 
         override fun getBodyContentType(): String {
@@ -74,7 +74,17 @@ class MainActivity : AppCompatActivity() {
     private fun confirmPayment(){
         val payment: PaymentModel? = paymentQueue.firstOrNull()
         val req = ConfirmRequest("confirm", payment!!.uuid, token){
-            nextPopup()
+            res ->
+                if(res == "true"){
+                    binding.BlikCode.visibility = View.GONE
+                    binding.BlikCode.text = ""
+                    binding.Time.text = "Blik code used!"
+                    binding.Blik.isEnabled = true
+                    binding.Blik.isClickable = true
+                    timer.cancel()
+                    paymentQueue.clear()
+                }
+                nextPopup()
         }
         queue.add(req)
     }
@@ -182,22 +192,20 @@ class MainActivity : AppCompatActivity() {
         binding.Time.visibility = View.VISIBLE
         binding.Time.text = "01:59"
 
-        val timerTextView = binding.Time
-
-        val timer = object : CountDownTimer(milliseconds, 1000) {
+        timer = object : CountDownTimer(milliseconds, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 val minutes = millisUntilFinished / 60000
                 val seconds = (millisUntilFinished % 60000) / 1000
-                timerTextView.text = "${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}"
+                binding.Time.text = "${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}"
             }
             override fun onFinish() {
-                timerTextView.text = "Time's up!"
+                binding.Time.text = "Time's up!"
                 binding.BlikCode.visibility = View.GONE
                 binding.BlikCode.text = ""
                 binding.Blik.isEnabled = true
                 binding.Blik.isClickable = true
             }
-    }
+        }
         timer.start()
     }
 }

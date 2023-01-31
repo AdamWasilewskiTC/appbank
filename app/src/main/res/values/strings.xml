@@ -13,5 +13,5 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="eLogin">Enter login</string>
     <string name="ePassword">Enter password</string>
-    <string name="login">login</string>
+    <string name="login">Login</string>
 </resources>

@@ -6,8 +6,8 @@ class PaymentModel (
     val destination: String
 ) {
     override fun toString(): String {
-        return "ID transakcji: $uuid\n" +
-               "Wysokość: $amount PLN\n" +
-               "Do: $destination"
+        return "Payment ID: $uuid\n" +
+               "Amount: $amount PLN\n" +
+               "Destination: $destination"
     }
 }

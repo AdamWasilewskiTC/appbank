@@ -46,15 +46,14 @@ class LoginActivity : AppCompatActivity() {
             url,
             { response: String ->
                 if(response == "") {
-                    val toast = Toast(this)
-                    toast.setText("Błędny login lub hasło")
+                    val toast = Toast.makeText(this, "Login or password incorrect!", Toast.LENGTH_SHORT)
                     toast.show()
+                } else {
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.putExtra("Token", response)
+
+                    startActivity(intent)
                 }
-
-                val intent = Intent(this, MainActivity::class.java)
-                intent.putExtra("Token",response)
-
-                startActivity(intent)
             },
             { error: VolleyError ->
                 error.printStackTrace()
