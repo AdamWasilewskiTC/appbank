@@ -14,4 +14,8 @@
     <string name="eLogin">Enter login</string>
     <string name="ePassword">Enter password</string>
     <string name="login">Login</string>
+    <string name="balance_text">Balance: ?</string>
+    <string name="confirm_payment_text">Confirm payment?</string>
+    <string name="popup_yes">YES</string>
+    <string name="popup_no">MY WALLET MY MONEY</string>
 </resources>

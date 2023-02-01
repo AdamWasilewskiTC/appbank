@@ -17,7 +17,7 @@
             android:id="@+id/balance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Balance: ?"
+            android:text="@string/balance_text"
             android:textColor="@color/white"
             android:textSize="20sp"
             />
@@ -39,7 +39,7 @@
             android:background="@drawable/btn_bg"
             android:visibility="gone"
             android:textSize="30sp"
-            android:padding="10px"
+            android:padding="10dp"
             android:textColor="@color/white"/>
 
 
@@ -50,7 +50,7 @@
             android:layout_marginTop="20pt"
             android:background="@drawable/btn_bg"
             android:theme="@style/Theme.BankApp"
-            android:padding="10px"
+            android:padding="10dp"
             android:text="@string/blik"
             android:textColor="@color/white" />
 
@@ -63,7 +63,7 @@
             android:background="@drawable/btn_bg"
             android:visibility="gone"
             android:textSize="40sp"
-            android:padding="10px"
+            android:padding="10dp"
             android:textColor="@color/white"/>
     </LinearLayout>
     <LinearLayout
@@ -78,7 +78,7 @@
             android:id="@+id/popup_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Confirm payment?"
+            android:text="@string/confirm_payment_text"
             android:textColor="@color/white"
             android:textSize="20sp"
             />
@@ -90,13 +90,13 @@
                 android:id="@+id/yes_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="YES"
+                android:text="@string/popup_yes"
                 android:textColor="@color/white"/>
             <Button
                 android:id="@+id/no_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="MY WALLET MY MONEY"
+                android:text="@string/popup_no"
                 android:textColor="@color/white"/>
         </LinearLayout>
 

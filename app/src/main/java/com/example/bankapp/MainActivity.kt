@@ -15,7 +15,6 @@ import com.example.bankapp.databinding.ActivityMainBinding
 import org.json.JSONObject
 import java.net.HttpURLConnection
 import java.net.URL
-import kotlin.collections.ArrayDeque
 
 @RequiresApi(26)
 class MainActivity : AppCompatActivity() {
@@ -216,7 +215,7 @@ class MainActivity : AppCompatActivity() {
             Request.Method.GET,
             "$HOST_NAME/api/clients/balance?sessionToken=$token",
             {res ->
-                binding.balance.text = "Your balance: $res PLN";
+                binding.balance.text = "Your balance: $res PLN"
             },
             {err ->
                 binding.balance.text = "Oopsie doopsie something went wrong while getting Your account balance!"
