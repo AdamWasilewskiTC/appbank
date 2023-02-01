@@ -45,6 +45,7 @@ class LoginActivity : AppCompatActivity() {
             Method.POST,
             url,
             { response: String ->
+                binding.login.isClickable = true
                 if(response == "") {
                     val toast = Toast.makeText(this, "Login or password incorrect!", Toast.LENGTH_SHORT)
                     toast.show()
@@ -57,6 +58,7 @@ class LoginActivity : AppCompatActivity() {
             },
             { error: VolleyError ->
                 error.printStackTrace()
+                binding.login.isClickable = true
             }
         ){
             override fun getBody(): ByteArray{
@@ -69,5 +71,6 @@ class LoginActivity : AppCompatActivity() {
             }
         }
         queue.add(request)
+        binding.login.isClickable = false
     }
 }

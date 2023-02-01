@@ -36,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         }
         binding.yesBtn.setOnClickListener{confirmPayment()}
         binding.noBtn.setOnClickListener{rejectPayment()}
+        getBalance()
     }
 
     private fun showBlikCode() {
@@ -83,6 +84,7 @@ class MainActivity : AppCompatActivity() {
                     binding.Blik.isClickable = true
                     timer.cancel()
                     paymentQueue.clear()
+                    getBalance()
                 }
                 nextPopup()
         }
@@ -207,5 +209,20 @@ class MainActivity : AppCompatActivity() {
             }
         }
         timer.start()
+    }
+
+    private fun getBalance() {
+        val request = StringRequest(
+            Request.Method.GET,
+            "$HOST_NAME/api/clients/balance?sessionToken=$token",
+            {res ->
+                binding.balance.text = "Your balance: $res PLN";
+            },
+            {err ->
+                binding.balance.text = "Oopsie doopsie something went wrong while getting Your account balance!"
+            }
+        )
+
+        queue.add(request)
     }
 }

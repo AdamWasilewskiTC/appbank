@@ -14,6 +14,15 @@
         tools:context=".MainActivity">
 
         <TextView
+            android:id="@+id/balance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Balance: ?"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            />
+
+        <TextView
             android:id="@+id/Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -32,6 +41,7 @@
             android:textSize="30sp"
             android:padding="10px"
             android:textColor="@color/white"/>
+
 
         <Button
             android:id="@+id/Blik"
