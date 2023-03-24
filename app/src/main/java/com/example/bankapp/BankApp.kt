@@ -1,3 +1,3 @@
 package com.example.bankapp
 
-const val HOST_NAME = "http://192.168.40.166:8080"
+const val HOST_NAME = "http://192.168.1.129:8080"
